@@ -57,7 +57,10 @@ def dissolve_fields():
                 for row in cursor:
                     if row[0] in dict_values and len(dict_values[row[0]]) > index:
                         continue
-                    with arcpy.da.SearchCursor(input_join, [f'{t[0]}'], f'{arcpy.AddFieldDelimiters(input_join, input_join_field)} = {delimiter_value}{row[0]}{delimiter_value}') as cursor_join:
+                    criterio = row[0]
+                    if fieldtype == 'String':
+                        criterio = criterio.replace('\'','\'\'')    
+                    with arcpy.da.SearchCursor(input_join, [f'{t[0]}'], f'{arcpy.AddFieldDelimiters(input_join, input_join_field)} = {delimiter_value}{criterio}{delimiter_value}') as cursor_join:
                         l = []
                         for row_join in cursor_join:
                             l.append(row_join[0])
