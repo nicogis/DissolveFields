@@ -25,12 +25,19 @@
     <Content Include=".pylintrc">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="images\DissolveFields.gif" />
     <Content Include="pyUtil.tbx" />
+    <Content Include="Readme.md">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dissolve_fields.py">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="images\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
